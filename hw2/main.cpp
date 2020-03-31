@@ -47,6 +47,7 @@ int main(){
     q = (q-s[i])/10;
   }
   while(1){
+    Aout = Ain;
     if(Switch==0){
       for(int i1=i-1; i1>=0 && Switch==0; i1--){
         redLED = 0;
