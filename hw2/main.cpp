@@ -22,12 +22,13 @@ int main(){
   redLED = 1;
   greenLED = 0;
   for (i = 0; i < 2*sample; i++){
-    //Aout = Ain;
+    Aout = Ain;
     ADCdata[i] = Ain;
     wait(1./sample);
   }
   int q = 0;
   for (i = 0; i < 2*sample; i++){
+    pc.printf("%1.3f\r\n", ADCdata[i]);
     if(ADCdata[i-1]>ADCdata[i] && ADCdata[i]<=ADCdata[i+1]){
       //pc.printf("%d   ", i);
       //pc.printf("%1.5f\r\n", ADCdata[i]);

@@ -3,7 +3,7 @@ import numpy as np
 import serial
 import time
 
-Fs = 128.0;  # sampling rate
+Fs = 400.0;  # sampling rate
 Ts = 1.0/Fs; # sampling interval
 t = np.arange(0,1,Ts) # time vector; create Fs samples between 0 and 1.0 sec.
 y = np.arange(0,1,Ts) # signal vector; create Fs samples
@@ -23,19 +23,6 @@ for x in range(0, int(Fs)):
 
 Y = np.fft.fft(y)/n*2 # fft computing and normalization
 Y = Y[range(int(n/2))] # remove the conjugate frequency parts
-
-ans = abs(Y)
-ans = ans[10:]
-max = 0
-z = 0
-for i in range(len(ans)):
-    if(ans[i]>max):
-        max = ans[i]
-        z = i
-print(z+10)
-fp = open("filename.txt", "w")
-fp.write(str(z+10))
-fp.close()
 
 fig, ax = plt.subplots(2, 1)
 ax[0].plot(t,y)
